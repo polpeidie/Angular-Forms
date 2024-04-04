@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Helvetica Now Text', 'Helvetica', 'Arial', 'sans-serif']
+        'sans': ['Helvetica Now Text Medium', 'Helvetica Now Text', 'Helvetica', 'Arial', 'sans-serif']
       },
       fontWeight: {
         '100': '100;',
