@@ -1,5 +1,7 @@
-<main class="py-6 px-32">
-    <div class="grid place-content-center">
-        hola
+<main class="py-12 px-16 md:px-12 lg:px-12 xl:px-28">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-4">
+        @for (product of products; track product.id) {
+            <app-card [product]="product"></app-card>
+        }
     </div>
 </main>
