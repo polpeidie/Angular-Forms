@@ -22,6 +22,30 @@ export class ProductsComponent {
       name: 'Air Force One',
       price: 120,
       imageURL: ''
-    }
+    },
+    {
+      id: 3,
+      name: 'Air Force One',
+      price: 120,
+      imageURL: ''
+    },
+    {
+      id: 4,
+      name: 'Air Force One',
+      price: 120,
+      imageURL: ''
+    },
+    {
+      id: 5,
+      name: 'Air Force One',
+      price: 120,
+      imageURL: ''
+    },
+    {
+      id: 6,
+      name: 'Air Force One',
+      price: 120,
+      imageURL: ''
+    },
   ]
 }
