@@ -12,39 +12,39 @@ import { Product } from '../../interfaces/product';
 export class ProductsComponent {
   products: Product[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
     {
-      id: 2,
+      id: '2',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
     {
-      id: 3,
+      id: '3',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
     {
-      id: 4,
+      id: '4',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
     {
-      id: 5,
+      id: '5',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
     {
-      id: 6,
+      id: '6',
       name: 'Air Force One',
-      price: 120,
+      price: '120',
       imageURL: ''
     },
   ]
