@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Product } from '../../interfaces/product';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
