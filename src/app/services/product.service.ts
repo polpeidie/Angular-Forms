@@ -51,4 +51,8 @@ export class ProductService {
     return this.productsList
   }
 
+  addProduct (product: Product): void {
+    this.productsList.push(product)
+  }
+
 }

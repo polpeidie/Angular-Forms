@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { FormsModule } from '@angular/forms';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +11,18 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
+
+  constructor (private productService: ProductService) { }
+
+  clearForm () {
+    this.product = {
+      id: '',           // has to be lenght 9 all numbers
+      name: '',
+      price: '',
+      imageURL:'',
+    }
+  }
+
   product: Product = {
     id: '',           // has to be lenght 9 all numbers
     name: '',
@@ -18,6 +31,7 @@ export class AdminComponent {
   }
 
   onSubmit () {
-    console.log(this.product)
+    this.productService.addProduct(this.product)
+    this.clearForm()
   }
 }
