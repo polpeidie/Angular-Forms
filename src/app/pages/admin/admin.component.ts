@@ -16,4 +16,8 @@ export class AdminComponent {
     price: '',
     imageURL:'',
   }
+
+  onSubmit () {
+    console.log(this.product)
+  }
 }
