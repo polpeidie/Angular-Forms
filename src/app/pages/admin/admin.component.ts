@@ -18,7 +18,7 @@ export class AdminComponent {
     this.product = {
       id: '',           // has to be lenght 9 all numbers
       name: '',
-      price: '',
+      price: null,
       imageURL:'',
     }
   }
@@ -26,13 +26,21 @@ export class AdminComponent {
   product: Product = {
     id: '',           // has to be lenght 9 all numbers
     name: '',
-    price: '',
+    price: null,
     imageURL:'',
   }
 
+  errors = {
+    priceIsNaN: false
+  }
+
   onSubmit () {
-    
-    this.productService.addProduct(this.product)
-    this.clearForm()
+    if (isNaN(this.product.price)) {  //  if price is not a number(NaN) return errors
+      this.errors.priceIsNaN = true
+    } else {
+      this.errors.priceIsNaN = false
+      this.productService.addProduct(this.product)
+      this.clearForm()
+    }
   }
 }

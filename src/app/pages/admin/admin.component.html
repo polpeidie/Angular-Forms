@@ -23,6 +23,11 @@
 
         <div class="flex flex-col mt-5">
             <label for="id" class="pl-1">Price</label>
+
+            @if (this.errors.priceIsNaN) {
+                <p class="text-red-500">Price must be a number</p>
+            }
+
             <input placeholder="Product price..." type="text" name="id"
                 class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
                 required 
