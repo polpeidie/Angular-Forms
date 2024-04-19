@@ -31,6 +31,7 @@ export class AdminComponent {
   }
 
   onSubmit () {
+    
     this.productService.addProduct(this.product)
     this.clearForm()
   }
