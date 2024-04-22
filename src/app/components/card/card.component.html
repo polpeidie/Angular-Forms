@@ -1,5 +1,22 @@
-<div class="bg-neutral-100 h-72 shadow-md rounded-sm">
-    {{product.id}}
-    {{product.name}}
-    {{product.price}}
+<div class="bg-neutral-100 h-72 shadow-md rounded-sm flex flex-col items-center overflow-hidden">
+    @if (product.imageURL !== '') {
+        <img src="{{product.imageURL}}" class="w-64 -mt-8" alt="Product image">
+
+        <p class="font-600">
+            {{product.name}}
+        </p>
+        <p>
+            {{product.price}} €
+        </p>
+
+    } @else {
+        <img src="{{product.imageURL}}" class="w-64 mb-[200px]" alt="Product image">
+
+        <p class="font-600">
+            {{product.name}}
+        </p>
+        <p>
+            {{product.price}} €
+        </p>
+    }
 </div>
