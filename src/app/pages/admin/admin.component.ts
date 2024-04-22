@@ -31,16 +31,63 @@ export class AdminComponent {
   }
 
   errors = {
-    priceIsNaN: false
+    id: {
+      isNull: false
+    },
+    name: {
+      isNull: false
+    },
+    price: {
+      isNaN: false,
+      isNull: false
+    }
   }
 
   onSubmit () {
-    if (isNaN(this.product.price)) {  //  if price is not a number(NaN) return errors
-      this.errors.priceIsNaN = true
+    // ID VALIDATION
+    if (this.product.id === null || this.product.id === '') {
+      this.errors.id.isNull = true
+      return
     } else {
-      this.errors.priceIsNaN = false
-      this.productService.addProduct(this.product)
-      this.clearForm()
+      this.errors.id.isNull = false
     }
+
+    // NAME VALIDATION
+    if (this.product.name === null || this.product.name === '') {
+      this.errors.name.isNull = true
+      return
+    } else {
+      this.errors.name.isNull = false
+    }
+
+    // PRICE VALIDATION
+    if (isNaN(this.product.price)) {  //  if price is not a number(NaN) return errors
+      this.errors.price.isNaN = true
+      return
+    } else {
+      this.errors.price.isNaN = false
+    }
+
+    if (this.product.price === null || this.product.price === '') {
+      this.errors.price.isNull = true
+      return
+    } else {
+      this.errors.price.isNull = false
+    }
+
+
+    this.clearErrors()
+    this.productService.addProduct(this.product)
+    this.clearForm()
+    
+  }
+
+
+
+  clearErrors () {
+    this.errors.id.isNull = false
+    this.errors.name.isNull = false
+    this.errors.price.isNaN = false
+    this.errors.price.isNull = false
   }
 }

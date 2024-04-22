@@ -3,6 +3,9 @@
         <h2 class="text-center font-600 text-3xl">Add product</h2>
         <div class="flex flex-col mt-8">
             <label for="id" class="pl-1">Reference Id</label>
+            @if (this.errors.id.isNull) {
+                <p class="text-red-500">Id is a required field</p>
+            }
             <input placeholder="Id" type="text" name="id"
                 class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
                 required 
@@ -13,6 +16,9 @@
 
         <div class="flex flex-col mt-5">
             <label for="id" class="pl-1">Name</label>
+            @if (this.errors.name.isNull) {
+                <p class="text-red-500">Name is a required field</p>
+            }
             <input placeholder="Product name..." type="text" name="id"
                 class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
                 required 
@@ -24,8 +30,10 @@
         <div class="flex flex-col mt-5">
             <label for="id" class="pl-1">Price</label>
 
-            @if (this.errors.priceIsNaN) {
+            @if (this.errors.price.isNaN) {
                 <p class="text-red-500">Price must be a number</p>
+            } @else if (this.errors.price.isNull) {
+                <p class="text-red-500">Price is a required field</p>
             }
 
             <input placeholder="Product price..." type="text" name="id"
