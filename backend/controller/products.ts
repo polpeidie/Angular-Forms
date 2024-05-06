@@ -20,7 +20,7 @@ export class ProductController {
             return res.status(400).json({ error: JSON.parse(result.error.message) })
         }
 
-        const newProduct = await ProductModel.create({ input: result.data })
+        const newProduct = await ProductModel.create(result.data)
 
         res.status(201).json(newProduct)
     }

@@ -24,7 +24,7 @@ export class ProductModel {
         return products
     }
 
-    static async create ({ input }) {
+    static async create (input: Product) {
         const {
             id,
             name,
@@ -56,6 +56,6 @@ export class ProductModel {
             `SELECT * FROM products WHERE id = ?`, [id]
         )
 
-        return product[0]
+        return product
     }
 }
