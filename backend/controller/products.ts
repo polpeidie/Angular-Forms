@@ -7,7 +7,7 @@ export class ProductController {
 
         const products = await ProductModel.getAll()
 
-        res.json(products)
+        res.status(200).json(products)
     }
 
     static async create (req: Request, res: Response) {
