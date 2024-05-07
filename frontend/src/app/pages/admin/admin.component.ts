@@ -16,18 +16,18 @@ export class AdminComponent {
 
   clearForm () {
     this.product = {
-      id: '',           // has to be lenght 9 all numbers
+      id: 0,           // has to be lenght 9 all numbers
       name: '',
-      price: null,
-      imageURL:'',
+      price: 0,
+      imageUrl:'',
     }
   }
 
   product: Product = {
-    id: '',           // has to be lenght 9 all numbers
+    id: 0,           // has to be lenght 9 all numbers
     name: '',
-    price: null,
-    imageURL:'',
+    price: 0,
+    imageUrl:'',
   }
 
   errors = {
@@ -45,7 +45,7 @@ export class AdminComponent {
 
   onSubmit () {
     // ID VALIDATION
-    if (this.product.id === null || this.product.id === '') {
+    if (this.product.id === null) {
       this.errors.id.isNull = true
       return
     } else {
@@ -68,7 +68,7 @@ export class AdminComponent {
       this.errors.price.isNaN = false
     }
 
-    if (this.product.price === null || this.product.price === '') {
+    if (this.product.price === null) {
       this.errors.price.isNull = true
       return
     } else {
@@ -77,7 +77,7 @@ export class AdminComponent {
 
 
     this.clearErrors()
-    this.productService.addProduct(this.product)
+    // this.productService.addProduct(this.product)
     this.clearForm()
     
   }

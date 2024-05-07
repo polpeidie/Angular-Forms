@@ -1,6 +1,6 @@
 <div class="bg-neutral-100 h-72 shadow-md rounded-sm flex flex-col items-center overflow-hidden">
-    @if (product.imageURL !== '') {
-        <img src="{{product.imageURL}}" class="w-64 -mt-8" alt="Product image">
+    @if (product.imageUrl !== '') {
+        <img src="{{product.imageUrl}}" class="w-64 -mt-8" alt="Product image">
 
         <p class="font-600">
             {{product.name}}
@@ -10,7 +10,7 @@
         </p>
 
     } @else {
-        <img src="{{product.imageURL}}" class="w-64 mb-[200px]" alt="Product image">
+        <img src="{{product.imageUrl}}" class="w-64 mb-[200px]" alt="Product image">
 
         <p class="font-600">
             {{product.name}}
