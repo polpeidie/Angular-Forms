@@ -2,9 +2,9 @@ POST http://localhost:3000/product/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Naikies",
-    "price": 20,
-    "imageUrl": ""
+    "name": "Air Force One 1'07 Next Nature",
+    "price": 119.99,
+    "imageUrl": "./assets/images/products/air_force_one.png"
 }
 
 ###

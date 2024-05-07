@@ -24,6 +24,8 @@ export class ProductController {
 
         const newProduct = await ProductModel.create(result as Product)
 
+        if (newProduct === null) return res.status(409).json({ message: 'Resource already exists' })
+
         res.status(201).json(newProduct)
     }
 }
