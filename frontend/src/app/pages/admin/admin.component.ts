@@ -16,7 +16,6 @@ export class AdminComponent {
 
   clearForm () {
     this.product = {
-      id: 0,           // has to be lenght 9 all numbers
       name: '',
       price: 0,
       imageUrl:'',
@@ -24,34 +23,25 @@ export class AdminComponent {
   }
 
   product: Product = {
-    id: 0,           // has to be lenght 9 all numbers
     name: '',
     price: 0,
-    imageUrl:'',
+    imageUrl: ''
   }
 
   errors = {
-    id: {
-      isNull: false
-    },
     name: {
       isNull: false
     },
     price: {
       isNaN: false,
       isNull: false
+    },
+    imageUrl: {
+      isNull: false
     }
   }
 
   onSubmit () {
-    // ID VALIDATION
-    if (this.product.id === null) {
-      this.errors.id.isNull = true
-      return
-    } else {
-      this.errors.id.isNull = false
-    }
-
     // NAME VALIDATION
     if (this.product.name === null || this.product.name === '') {
       this.errors.name.isNull = true
@@ -75,19 +65,30 @@ export class AdminComponent {
       this.errors.price.isNull = false
     }
 
+    // URL VALIDATION
+    if (this.product.imageUrl === null || this.product.imageUrl === '') {
+      this.errors.imageUrl.isNull = true
+      return
+    } else {
+      this.errors.imageUrl.isNull = false
+    }
+
 
     this.clearErrors()
-    // this.productService.addProduct(this.product)
+    // It is important to use the subscribe method, otherwise it won't work
+    this.productService.createProduct(this.product).subscribe(() => {
+      console.log('Product created.')
+    })
+
     this.clearForm()
-    
   }
 
 
 
   clearErrors () {
-    this.errors.id.isNull = false
     this.errors.name.isNull = false
     this.errors.price.isNaN = false
     this.errors.price.isNull = false
+    this.errors.imageUrl.isNull = false
   }
 }

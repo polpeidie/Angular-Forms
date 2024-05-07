@@ -1,18 +1,6 @@
 <main class="pb-8 px-16 md:px-12 lg:px-12 xl:px-28">
     <form class="flex flex-col items-center xl:mt-10 2xl:mt-24" method="" (ngSubmit)="onSubmit()">
         <h2 class="text-center font-600 text-3xl">Add product</h2>
-        <div class="flex flex-col mt-8">
-            <label for="id" class="pl-1">Reference Id</label>
-            @if (this.errors.id.isNull) {
-                <p class="text-red-500">Id is a required field</p>
-            }
-            <input placeholder="Id" type="text" name="id"
-                class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
-                required 
-                [(ngModel)]="product.id"
-                #model="ngModel"
-            >
-        </div>
 
         <div class="flex flex-col mt-5">
             <label for="id" class="pl-1">Name</label>
@@ -21,8 +9,8 @@
             }
             <input placeholder="Product name..." type="text" name="id"
                 class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
-                required 
-                [(ngModel)]="product.name"
+                required
+                [(ngModel)]="this.product.name"
                 #model="ngModel"
             >
         </div>
@@ -38,12 +26,27 @@
 
             <input placeholder="Product price..." type="text" name="id"
                 class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
-                required 
-                [(ngModel)]="product.price"
+                required
+                [(ngModel)]="this.product.price"
                 #model="ngModel"
             >
         </div>
 
+        <div class="flex flex-col mt-5">
+            <label for="id" class="pl-1">Image URL</label>
+
+            @if (this.errors.imageUrl.isNull) {
+                <p class="text-red-500">Image URL is a required field</p>
+            }
+
+            <input placeholder="Product image..." type="text" name="id"
+                class="border-b border-gray-300 focus:bg-gray-100 focus:border-indigo-500 focus:border-b-2 focus:placeholder-transparent hover:bg-gray-100 outline-none focus:outline-none px-2 py-1 duration-75 placeholder:transition-opacity transition-all ease-in-out"
+                required
+                [(ngModel)]="this.product.imageUrl"
+                #model="ngModel"
+            >
+        </div>
+        
         <button 
             type="submit"
             class="px-4 py-3 bg-[#111111] bg-opacity-80 text-[#f1f1f1] rounded-xl hover:bg-opacity-70 transition font-500 shadow-md mt-6"
