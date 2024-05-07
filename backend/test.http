@@ -1,0 +1,11 @@
+POST http://localhost:3000/product/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Naikies",
+    "price": 20,
+    "imageUrl": ""
+}
+
+###
+GET http://localhost:3000/product/ HTTP/1.1

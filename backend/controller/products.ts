@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import { ProductModel } from '../model/product'
+import { Product } from '../interfaces/product'
 
 export class ProductController {
     static async getAll (req: Request, res: Response) {
@@ -16,11 +17,12 @@ export class ProductController {
         // TODO: Falta validar body validateProduct()
         const result = req.body
 
-        if (result.error) {
-            return res.status(400).json({ error: JSON.parse(result.error.message) })
+
+        if (result === null) {
+            res.status(400).json({ message: 'No product data was provided.' })
         }
 
-        const newProduct = await ProductModel.create(result.data)
+        const newProduct = await ProductModel.create(result as Product)
 
         res.status(201).json(newProduct)
     }

@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { json } from 'express'
 import cors from 'cors'
 import { createProductRouter } from './routes/products'
 
@@ -6,10 +6,7 @@ const app = express()
 const port = process.env.PORT ?? 3000
 
 app.use(cors())
-
-app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Hello World!' })
-})
+app.use(json())
 
 app.use('/product', createProductRouter())
 

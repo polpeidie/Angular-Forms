@@ -26,7 +26,6 @@ export class ProductModel {
 
     static async create (input: Product) {
         const {
-            id,
             name,
             price,
             imageUrl
@@ -35,7 +34,7 @@ export class ProductModel {
         const connection = await connectToDatabase()
 
         const [result] = await connection.query(
-            'SELECT * FROM products WHERE id = ?;', [id]
+            'SELECT * FROM products WHERE name = ?;', [name]
         )
 
         // Convert QueryResult to Product
@@ -45,15 +44,15 @@ export class ProductModel {
 
         try {
             await connection.query(
-                `INSERT INTO products (id, name, price, imageUrl) 
-                VALUES (?, ?, ?, ?);`, [id, name, price, imageUrl]
+                `INSERT INTO products (name, price, imageUrl) 
+                VALUES (?, ?, ?);`, [name, price, imageUrl]
             )
         } catch (error) {
             throw new Error('Error creating product')
         }
 
-        const product = connection.query(
-            `SELECT * FROM products WHERE id = ?`, [id]
+        const [product] = await connection.query(
+            `SELECT * FROM products WHERE name = ?`, [name]
         )
 
         return product
