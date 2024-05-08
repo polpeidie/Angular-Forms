@@ -22,6 +22,8 @@ export class AdminComponent {
     }
   }
 
+  showModal: boolean = false
+
   product: Product = {
     name: '',
     price: 0,
@@ -75,9 +77,11 @@ export class AdminComponent {
 
 
     this.clearErrors()
+    
     // It is important to use the subscribe method, otherwise it won't work
     this.productService.createProduct(this.product).subscribe(() => {
-      console.log('Product created.')
+      this.showModal = true
+      setTimeout(() => this.showModal = false, 2000)
     })
 
     this.clearForm()
