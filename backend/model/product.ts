@@ -57,4 +57,26 @@ export class ProductModel {
 
         return product
     }
+
+    static async delete (id: string) {
+        const connection = await connectToDatabase()
+
+        const [result] = await connection.query(
+            'SELECT * FROM products WHERE id = ?;', [id]
+        )
+
+        const products: Product[] = result as Product[]
+
+        if (products.length === 0) return null
+
+        try {
+            await connection.query(
+                `DELETE FROM products WHERE id = ?;`, [id]
+            )
+        } catch (error) {
+            throw new Error('Error deleting product.' + error)
+        }
+
+        return { message: 'Product deleted successfully.' }
+    }
 }

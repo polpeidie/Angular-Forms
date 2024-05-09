@@ -28,4 +28,20 @@ export class ProductController {
 
         res.status(201).json(newProduct)
     }
+
+    static async delete (req: Request, res: Response) {
+        res.header('Access-Control-Allow-Origin', '*')
+
+        const { id } = req.params
+
+        if (id === null) {
+            res.status(400).json({ message: 'No id was provided.' })
+        }
+
+        const result = await ProductModel.delete(id)
+
+        if (result === null) return res.status(404).json({ message: 'No product found with matching id.' })
+
+        return res.status(204).json({ message: 'Product deleted.' })
+    }
 }

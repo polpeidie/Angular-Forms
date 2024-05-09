@@ -7,5 +7,7 @@ export const createProductRouter = () => {
     productRouter.get('/', ProductController.getAll)
     productRouter.post('/', ProductController.create)
 
+    productRouter.delete('/:id', ProductController.delete)
+
     return productRouter
 }
