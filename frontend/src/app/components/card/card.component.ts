@@ -9,10 +9,16 @@ import { Product } from '../../interfaces/product';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
+  isHovered = false
+
   @Input() product: Product = {
     id: 0,
     name: '',
     price: 0,
     imageUrl: ''
+  }
+
+  hello () {
+    console.log(this.product.id)
   }
 }
