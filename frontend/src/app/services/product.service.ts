@@ -8,7 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 })
 export class ProductService {
 
-  private apiEndpoint = 'http://localhost:3000/product'
+  private apiEndpoint = 'http://localhost:3000/product/'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,4 +26,8 @@ export class ProductService {
     return this.http.post<Product>(this.apiEndpoint, product, this.httpOptions)
   }
 
+  deleteProduct (id: string): Observable<void> {
+    const deleteAPIEndpoint = this.apiEndpoint.concat(id)
+    return this.http.delete<void>(deleteAPIEndpoint)
+  }
 }
